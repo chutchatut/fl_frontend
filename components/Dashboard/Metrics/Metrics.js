@@ -4,7 +4,7 @@ import { useState } from "react";
 import Chart from "../Chart/Chart";
 import MyCard from "../MyCard/MyCard";
 
-const PREFIX = {
+const POSTFIX = {
   val_time: "seconds",
 };
 
@@ -39,7 +39,7 @@ const Metrics = (props) => {
         >
           {Array.from(metrics).map((metric) => (
             <Select.Option value={metric}>
-              {metric in PREFIX ? `${metric} - ${PREFIX[metric]}` : metric}
+              {metric in POSTFIX ? `${metric} - ${POSTFIX[metric]}` : metric}
             </Select.Option>
           ))}
         </Select>
