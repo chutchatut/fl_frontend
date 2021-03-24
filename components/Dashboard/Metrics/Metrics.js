@@ -4,6 +4,10 @@ import { useState } from "react";
 import Chart from "../Chart/Chart";
 import MyCard from "../MyCard/MyCard";
 
+const PREFIX = {
+  val_time: "seconds",
+};
+
 const Metrics = (props) => {
   const [selectedMetric, setSelectedMetric] = useState("");
 
@@ -35,9 +39,7 @@ const Metrics = (props) => {
         >
           {Array.from(metrics).map((metric) => (
             <Select.Option value={metric}>
-              {metric.toLowerCase().indexOf("time") === -1
-                ? metric
-                : `${metric} - seconds`}
+              {metric in PREFIX ? `${metric} - ${PREFIX[metric]}` : metric}
             </Select.Option>
           ))}
         </Select>
