@@ -32,7 +32,14 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (error)
-      message.error("Cannot load data, server might be down right now");
+      message.error({
+        content: "Cannot load data, server might be down right now",
+        key: "error",
+        duration: 0,
+      });
+    else {
+      message.destroy("error");
+    }
   }, [error]);
 
   return (

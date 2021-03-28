@@ -3,8 +3,6 @@ import Chart from "../Chart/Chart";
 import MyCard from "../MyCard/MyCard";
 
 const ActiveClient = (props) => {
-  console.log(props);
-
   let data = {};
   if (props.data)
     for (let client of props.data) {
@@ -28,7 +26,7 @@ const ActiveClient = (props) => {
 };
 
 export default React.memo(ActiveClient, (prevProps, nextProps) => {
-  if (!prevProps.data) return false;
+  if (!prevProps.data || !nextProps.data) return false;
   if (prevProps.data.lenght !== nextProps.data.lenght) return false;
   for (let i = 0; i < prevProps.data.lenght; ++i) {
     if (prevProps[i].data.token != nextProps[i].data.token) return false;
