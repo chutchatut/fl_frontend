@@ -17,7 +17,7 @@ const RoundTime = (props) => {
     }
   }
   return (
-    <MyCard title="Round Time - seconds" width="calc( 100vw - 380px )">
+    <MyCard title="Round Time - seconds" width="calc( 100vw - 375px )">
       <Chart.Line
         data={data}
         config={{
