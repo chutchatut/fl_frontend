@@ -50,7 +50,7 @@ const Clients = (props) => {
   ];
 
   return (
-    <MyCard title="Clients" width="calc( 100vw - 440px )">
+    <MyCard title="Clients" width="calc( 100vw - 450px )">
       <Table
         dataSource={dataSource}
         columns={columns}
