@@ -8,6 +8,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import Metrics from "./Metrics/Metrics";
+import ErrorList from "antd/lib/form/ErrorList";
 
 // return model success rate
 
@@ -23,9 +24,13 @@ const Dashboard = () => {
         "http://ec2-18-177-219-97.ap-northeast-1.compute.amazonaws.com:8080/"
       );
       setData(response.data);
-      setError(null);
+      if (response.data.error) {
+        setError(response.data.error);
+      } else {
+        setError(null);
+      }
     } catch (e) {
-      setError(e.message);
+      setError("Cannot connect to FL monitoring server");
     }
     setTimeout(() => setTick((tick) => !tick), 3000);
   }, [tick]);
@@ -33,7 +38,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (error)
       message.error({
-        content: "Cannot load data, server might be down right now",
+        content: ErrorList,
         key: "error",
         duration: 0,
       });
