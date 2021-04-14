@@ -38,7 +38,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (error)
       message.error({
-        content: ErrorList,
+        content: error,
         key: "error",
         duration: 0,
       });
