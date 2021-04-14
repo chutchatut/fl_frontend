@@ -21,7 +21,7 @@ const Dashboard = () => {
     clearTimeout();
     try {
       const response = await axios.get(
-        "http://ec2-18-177-219-97.ap-northeast-1.compute.amazonaws.com:8080/"
+        "http://localhost:8080/"
       );
       setData(response.data);
       if (response.data.error) {
@@ -30,7 +30,7 @@ const Dashboard = () => {
         setError(null);
       }
     } catch (e) {
-      setError("Cannot connect to FL monitoring server");
+      setError("Cannot connect to FL Monitoring Server");
     }
     setTimeout(() => setTick((tick) => !tick), 3000);
   }, [tick]);
