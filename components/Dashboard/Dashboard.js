@@ -8,9 +8,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import Metrics from "./Metrics/Metrics";
-import ErrorList from "antd/lib/form/ErrorList";
 
-// return model success rate
+import getConfig from "next/config";
+const { publicRuntimeConfig } = getConfig();
+
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
@@ -21,7 +22,9 @@ const Dashboard = () => {
     clearTimeout();
     try {
       const response = await axios.get(
-        "http://localhost:8080/"
+        `http://${publicRuntimeConfig.BACKEND_URL
+                ? publicRuntimeConfig.BACKEND_URL
+                : "localhost"}:8080/`
       );
       setData(response.data);
       if (response.data.error) {
