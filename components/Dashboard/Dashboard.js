@@ -12,7 +12,6 @@ import Metrics from "./Metrics/Metrics";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
 
-
 const Dashboard = () => {
   const [data, setData] = useState(null);
   const [tick, setTick] = useState(false);
@@ -22,9 +21,11 @@ const Dashboard = () => {
     clearTimeout();
     try {
       const response = await axios.get(
-        `http://${publicRuntimeConfig.BACKEND_URL
-                ? publicRuntimeConfig.BACKEND_URL
-                : "localhost"}:8080/`
+        `http://${
+          publicRuntimeConfig.BACKEND_URL
+            ? publicRuntimeConfig.BACKEND_URL
+            : "localhost"
+        }:8080/`
       );
       setData(response.data);
       if (response.data.error) {

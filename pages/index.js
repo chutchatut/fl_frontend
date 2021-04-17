@@ -12,4 +12,6 @@ const Home = () => {
   );
 };
 
+Home.getInitialProps = () => ({});
+
 export default Home;
