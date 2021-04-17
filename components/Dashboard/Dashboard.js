@@ -36,7 +36,7 @@ const Dashboard = () => {
     } catch (e) {
       setError("Cannot connect to FL Monitoring Server");
     }
-    setTimeout(() => setTick((tick) => !tick), 3000);
+    setTimeout(() => setTick((tick) => !tick), 20000);
   }, [tick]);
 
   useEffect(() => {
